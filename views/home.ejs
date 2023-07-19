@@ -1,0 +1,330 @@
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .w-1 {
+        width: 100%;
+    }
+
+    .w-2 {
+        width: 20%;
+    }
+
+    .w-3 {
+        width: 30%;
+    }
+
+    .w-4 {
+        width: 40%;
+    }
+
+    .w-5 {
+        width: 50%;
+    }
+
+    .w-6 {
+        width: 60%;
+    }
+
+    .container {
+        max-width: 1140px;
+        margin: 0 auto;
+    }
+
+    .d-flex {
+        display: flex;
+    }
+
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .justyfy-contant-spacebtween {
+        justify-content: space-between !important;
+    }
+
+    .align-items-center {
+        align-items: center !important;
+    }
+
+    .text-align-center {
+        text-align: center;
+    }
+
+    li{
+        list-style: none;
+    }
+
+    a{
+        text-decoration: none;
+    }
+
+    .form-btn {
+        display: inline-block;
+        text-decoration: none;
+        border: 1px solid transparent;
+        padding: 7px 20px;
+        background-color: rgb(0, 0, 0);
+        color: white;
+        position: relative;
+        font-weight: 400;
+        transition: 0.4s all;
+        overflow: hidden;
+        font-size: 1rem;
+        border-radius: 15px;
+    }
+
+    .form-btn:hover {
+        font-weight: 700;
+        background-color: transparent;
+        color: black;
+        border: 1px solid black;
+
+    }
+
+    .form-btn::before {
+        content: '';
+        width: 100%;
+        height: 3px;
+        background-color: #000000;
+        position: absolute;
+        top: 0;
+        right: -100%;
+        transition: 0.4s all linear;
+    }
+
+    .form-btn:hover::before {
+        right: 0;
+    }
+
+    .form-btn::after {
+        content: '';
+        width: 100%;
+        height: 3px;
+        background-color: #000000;
+        position: absolute;
+        bottom: 0;
+        left: -100%;
+        transition: 0.4s all;
+    }
+
+    .form-btn:hover::after {
+        left: 0;
+    }
+
+
+    .form-btn-secondary {
+        display: inline-block;
+        text-decoration: none;
+        border: 1px solid transparent;
+        border-radius: 50rem;
+        padding: 1rem 3rem;
+        background-color: #fefae0;
+        color: #000000;
+        font-weight: 400;
+        transition: 0.4s all;
+        font-size: 1rem;
+    }
+
+    .form-btn-secondary:hover {
+        background-color: 000000;
+        color: #fefae0;
+        border: 1px solid #000000;
+
+    }
+
+    ::placeholder {
+        color: rgb(59, 58, 58);
+        
+    }
+
+    label {
+        color: black;
+        font-size: large;
+        padding: 5px 0;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+
+
+
+    .form-inner1 {
+        border-right: 2px solid black;
+        border-left: 2px solid black;
+        padding: 44px;
+        background-color: rgb(0, 183, 255);
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+    }
+
+    .form-inner2 {
+        padding: 40px;
+        border-right: 2px solid black;
+        background-color: rgb(0, 183, 255);
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+    }
+
+    .form-inner1 input,
+    .form-inner2 input {
+        background-color: transparent;
+        border: 0px;
+        border-bottom: 1px solid black;
+        outline: none;
+        padding: 10px 0px;
+    }
+
+    .form-inner1 textarea,
+    .form-inner2 textarea {
+        background-color: transparent;
+        border: 0px;
+        border-bottom: 1px solid black;
+        outline: none;
+        padding: 10px 0px;
+    }
+
+    .form-inner1 label,
+    .form-inner2 label {
+        font-size: 16px;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+    header{
+        background-color: rgb(243 243 243);
+        margin-bottom: 40px;
+    }
+    ul li {
+        margin-left: 25px;
+    }
+    ul li a i{
+        font-size: 25px;
+        color: black;
+    }
+</style>
+
+
+<link rel="stylesheet" href="/remix/remixicon.css">
+
+
+
+<header>
+    <div class="container">
+        <div class="row justyfy-contant-spacebtween align-items-center">
+            <div class="logo">
+                <img src="/img/movie.png" alt="logo" title="logo" height="75px" width="100%">
+            </div>
+            <nav>
+                <ul class="d-flex">
+                    <li><a href="/show_View"><i class="ri-eye-line"></i></i></a></li>
+                    <li><a href="/adminView"><i class="ri-edit-box-line"></i></a></li>
+                    <!-- <li><a href="/"><i class="ri-home-3-line"></i></a></li> -->
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+
+
+
+<div class="container">
+    <form action="/insertrecoed" method="post" enctype="multipart/form-data">
+        <div class="d-flex">
+            <div class="w-5">
+                <div class="form-inner1">
+
+                    <label for="Poster">Enter Poster : </label><br>
+                    <input type="file" name="images">
+                    <br>
+
+                    <br>
+                    <label for="title">Enter Title : </label><br>
+                    <input type="text" name="title" placeholder="Enter Your Title">
+                    <br>
+
+                    <br>
+                    <label for="plot">Enter Plot : </label><br>
+                    <textarea name="plot" cols="30" rows="1" placeholder="Enter Plot"></textarea>
+                    <br>
+
+                    <br>
+                    <label for="gener">Select Gener : </label><br>
+                    <input type="checkbox" name="gener[]" value="Comedy" /> Comedy
+                    <input type="checkbox" name="gener[]" value="Drama" /> Drama
+                    <input type="checkbox" name="gener[]" value="Thriller" /> Thriller
+                    <input type="checkbox" name="gener[]" value="Action" /> Action
+                    <input type="checkbox" name="gener[]" value="Romance" /> Romance
+                    <input type="checkbox" name="gener[]" value="Horror" /> Horror<br>
+                    <input type="checkbox" name="gener[]" value="Suspense" /> Suspense
+                    <input type="checkbox" name="gener[]" value="Adventure" /> Adventure
+                    <input type="checkbox" name="gener[]" value="Crime" /> Crime
+                    <input type="checkbox" name="gener[]" value="Animation" /> Animation
+                    <br>
+
+                    <br>
+                    <label for="rating">Enter Rating : </label>
+                    <select name="rating">
+                        <option value="">...Select Rating...</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                    <br>
+
+                    <br>
+                    <label for="declaration">Enter Declaration : </label><br>
+                    <input type="text" name="declaration" placeholder="Enter Declaration">
+                    <br>
+
+
+                </div>
+            </div>
+            <div class="w-5">
+                <div class="form-inner2">
+                    <label for="release">Enter Release : </label><br>
+                    <input type="date" name="release" placeholder="Enter Release">
+                    <br>
+
+                    <br>
+                    <label for="name">Director Name : </label><br>
+                    <input type="text" name="name" placeholder="Director Name">
+                    <br>
+
+
+                    <br>
+                    <label for="casting">Enter Casting : </label><br>
+                    <textarea name="casting" cols="30" rows="1" placeholder="Enter Casting "></textarea>
+                    <br>
+
+
+                    <br>
+                    <label for="budget">Enter Budget : </label><br>
+                    <input type="text" name="budget" placeholder="Enter Budget">
+                    <br>
+
+                    <br>
+                    <label for="language">Select Language : </label><br>
+                    <input type="checkbox" name="language[]" value="Hindi" /> Hindi
+                    <input type="checkbox" name="language[]" value="English" /> English
+                    <input type="checkbox" name="language[]" value="Gujrati" /> Gujrati
+                    <input type="checkbox" name="language[]" value="Spanish" /> Spanish
+                    <input type="checkbox" name="language[]" value="Russian" /> Russian
+                    <input type="checkbox" name="language[]" value="French" /> French
+                    <input type="checkbox" name="language[]" value="German" /> German
+                    <br>
+
+                    <br>
+                    <label></label><br>
+                    <button class="form-btn">Submit</button>
+                    <br>
+
+                </div>
+            </div>
+
+        </div>
+    </form>
+</div>

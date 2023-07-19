@@ -1,0 +1,175 @@
+<style>
+    .w-1 {
+        width: 100%;
+    }
+
+    .w-2 {
+        width: 20%;
+    }
+
+    .w-3 {
+        width: 30%;
+    }
+
+    .w-4 {
+        width: 40%;
+    }
+
+    .w-5 {
+        width: 50%;
+    }
+
+    .w-6 {
+        width: 60%;
+    }
+
+    .container {
+        max-width: 1140px;
+        margin: 0 auto;
+    }
+
+    body{
+        margin: 0;
+    }
+
+    .d-flex {
+        display: flex;
+    }
+
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .justyfy-contant-spacebtween {
+        justify-content: space-between !important;
+    }
+
+    .align-items-center {
+        align-items: center !important;
+    }
+
+    .text-align-center {
+        text-align: center;
+    }
+
+    .banner {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .banner-img {
+        height: 460px;
+        width: 320px;
+        border: 2px solid black;
+        margin: 10px;
+        background-color: #eaf7ff;
+    }
+
+    .banner-img img {
+        object-fit: cover;
+    }
+
+    .banner-inner {
+        padding: 0 0 0 20px;
+    }
+
+    .btn1 {
+        text-decoration: none;
+        color: white;
+        padding: 7px 10px 7px 10px;
+        background-color: black;
+        border-radius: 5px;
+    }
+
+    header {
+        background-color: rgb(243 243 243);
+        margin-bottom: 40px;
+    }
+
+    ul li {
+        margin-left: 25px;
+    }
+
+    ul li a i {
+        font-size: 25px;
+        color: black;
+    }
+
+    li {
+        list-style: none;
+    }
+
+    a {
+        text-decoration: none;
+    }
+</style>
+<link rel="stylesheet" href="/remix/remixicon.css">
+
+
+<header>
+    <div class="container">
+        <div class="row justyfy-contant-spacebtween align-items-center">
+            <div class="logo">
+                <img src="/img/movie.png" alt="logo" title="logo" height="75px" width="100%">
+            </div>
+            <nav>
+                <ul class="d-flex">
+                    <!-- <li><a href="/adminView"><i class="ri-edit-box-line"></i></a></li> -->
+                    <!-- <li><a href="/show_View"><i class="ri-eye-line"></i></i></a></li> -->
+                    <li><a href="/"><i class="ri-home-3-line"></i></a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+
+
+<table>
+    <!-- <tr>
+        <td>Poster</td>
+        <td>Title</td>
+        <td>Plot</td>
+        <td>Gener</td>
+        <td>Rating</td>
+        <td>Declaration</td>
+        <td>Casting</td>
+        <td>Name</td>
+        <td>Budget</td>
+        <td>Language</td>
+        <td>Action</td>
+    </tr> -->
+
+    <div class="banner">
+        <% for(var sw of showdata){ %>
+            <div class="container">
+                <div class="row">
+                    <div class="banner-img">
+                        <img src="<%= sw.images %>" height="250" width="320px">
+                        <div class="banner-inner">
+                            <h2>
+                                <%= sw.title %>
+                            </h2>
+
+                            <p>
+                                <%= sw.gener %>
+                            </p>
+                            <p>
+                                <%= sw.name %>
+                            </p>
+                            <p>
+                                <%= sw.language %>
+                            </p>
+
+                            <a href="/read_more/<%= sw.id %>" class="btn1">Read More</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <% } %>
+    </div>
+
+
+</table>

@@ -1,0 +1,139 @@
+<style>
+    .w-1 {
+        width: 100%;
+    }
+
+    .w-2 {
+        width: 20%;
+    }
+
+    .w-3 {
+        width: 30%;
+    }
+
+    .w-4 {
+        width: 40%;
+    }
+
+    .w-5 {
+        width: 50%;
+    }
+
+    .w-6 {
+        width: 60%;
+    }
+
+    .container {
+        max-width: 1140px;
+        margin: 0 auto;
+    }
+
+    .d-flex {
+        display: flex;
+    }
+
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .justyfy-contant-spacebtween {
+        justify-content: space-between !important;
+    }
+
+    .align-items-center {
+        align-items: center !important;
+    }
+
+    .text-align-center {
+        text-align: center;
+    }
+
+    body {
+        background-color: black;
+    }
+
+
+    .btn-more{
+        margin-top: 30px;
+    }
+
+    .btn-more a:first-child {
+        margin-right: 10px;
+    }
+
+    .btn1 {
+        text-decoration: none;
+        color: white;
+        padding: 7px 10px 7px 10px;
+        background-color: black;
+        border-radius: 5px;
+    }
+
+    .read {
+        margin: 100px auto;
+        background-color: rgb(200 237 247 / 98%);
+    }
+
+    .read-contant {
+        margin-left: 50px;
+    }
+    .read-contant p,h2 {
+        padding: 0 80px 0 15px;
+        text-align: justify;
+    }
+   
+</style>
+<div class="container">
+    <section class="read">
+        <div class="d-flex align-items-center">
+            <div class="w-50">
+                <div class="read-img">
+                    <img src="<%= ad.images %>" height="500" width="380px">
+                </div>
+            </div>
+            <div class="w-50">
+                <div class="read-contant">
+                    <h2>
+                        <%= ad.title %>
+                    </h2>
+
+                    <p>
+                        <%= ad.plot %>
+                    </p>
+                    <p>
+                        <%= ad.gener %>
+                    </p>
+                    <p>
+                        <%= ad.rating %>
+                    </p>
+                    <p>
+                        <%= ad.declaration %>
+                    </p>
+                    <p>
+                        <%= ad.release %>
+                    </p>
+                    <p>
+                        <%= ad.name %>
+                    </p>
+                    <p>
+                        <%= ad.casting %>
+                    </p>
+                    <p>
+                        <%= ad.budget %>
+                    </p>
+                    <p>
+                        <%= ad.language %>
+                    </p>
+
+                    <!-- <div class="btn-more">
+                        <a href="/deleterecord/<%= ad.id %>" class="btn1">Delete</a>
+                        <a href="/update/?id=<%= ad.id %>" class="btn1">Update</a>
+                    </div> -->
+
+
+                </div>
+            </div>
+        </div>
+</div>
+</section>

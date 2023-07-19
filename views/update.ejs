@@ -1,0 +1,341 @@
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .w-1 {
+        width: 100%;
+    }
+
+    .w-2 {
+        width: 20%;
+    }
+
+    .w-3 {
+        width: 30%;
+    }
+
+    .w-4 {
+        width: 40%;
+    }
+
+    .w-5 {
+        width: 50%;
+    }
+
+    .w-6 {
+        width: 60%;
+    }
+
+    .container {
+        max-width: 1140px;
+        margin: 0 auto;
+    }
+
+    .d-flex {
+        display: flex;
+    }
+
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .justyfy-contant-spacebtween {
+        justify-content: space-between !important;
+    }
+
+    .align-items-center {
+        align-items: center !important;
+    }
+
+    .text-align-center {
+        text-align: center;
+    }
+
+    li{
+        list-style: none;
+    }
+
+    a{
+        text-decoration: none;
+    }
+
+    .form-btn {
+        display: inline-block;
+        text-decoration: none;
+        border: 1px solid transparent;
+        padding: 7px 20px;
+        background-color: rgb(0, 0, 0);
+        color: white;
+        position: relative;
+        font-weight: 400;
+        transition: 0.4s all;
+        overflow: hidden;
+        font-size: 1rem;
+        border-radius: 15px;
+    }
+
+    .form-btn:hover {
+        font-weight: 700;
+        background-color: transparent;
+        color: black;
+        border: 1px solid black;
+
+    }
+
+    .form-btn::before {
+        content: '';
+        width: 100%;
+        height: 3px;
+        background-color: #000000;
+        position: absolute;
+        top: 0;
+        right: -100%;
+        transition: 0.4s all linear;
+    }
+
+    .form-btn:hover::before {
+        right: 0;
+    }
+
+    .form-btn::after {
+        content: '';
+        width: 100%;
+        height: 3px;
+        background-color: #000000;
+        position: absolute;
+        bottom: 0;
+        left: -100%;
+        transition: 0.4s all;
+    }
+
+    .form-btn:hover::after {
+        left: 0;
+    }
+
+
+    .form-btn-secondary {
+        display: inline-block;
+        text-decoration: none;
+        border: 1px solid transparent;
+        border-radius: 50rem;
+        padding: 1rem 3rem;
+        background-color: #fefae0;
+        color: #000000;
+        font-weight: 400;
+        transition: 0.4s all;
+        font-size: 1rem;
+    }
+
+    .form-btn-secondary:hover {
+        background-color: 000000;
+        color: #fefae0;
+        border: 1px solid #000000;
+
+    }
+
+    ::placeholder {
+        color: rgb(59, 58, 58);
+        
+    }
+
+    label {
+        color: black;
+        font-size: large;
+        padding: 5px 0;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+
+
+
+    .form-inner1 {
+        border-right: 2px solid black;
+        border-left: 2px solid black;
+        padding: 44px;
+        background-color: rgb(0, 183, 255);
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+    }
+
+    .form-inner2 {
+        padding: 40px;
+        border-right: 2px solid black;
+        background-color: rgb(0, 183, 255);
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+    }
+
+    .form-inner1 input,
+    .form-inner2 input {
+        background-color: transparent;
+        border: 0px;
+        border-bottom: 1px solid black;
+        outline: none;
+        padding: 10px 0px;
+    }
+
+    .form-inner1 textarea,
+    .form-inner2 textarea {
+        background-color: transparent;
+        border: 0px;
+        border-bottom: 1px solid black;
+        outline: none;
+        padding: 10px 0px;
+    }
+
+    .form-inner1 label,
+    .form-inner2 label {
+        font-size: 16px;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+
+    header {
+        background-color: rgb(243 243 243);
+        margin-bottom: 10px;
+    }
+
+    ul li {
+        margin-left: 25px;
+    }
+
+    ul li a i {
+        font-size: 25px;
+        color: black;
+    }
+
+    li {
+        list-style: none;
+    }
+
+    a {
+        text-decoration: none;
+    }
+</style>
+
+<header>
+    <div class="container">
+        <div class="row justyfy-contant-spacebtween align-items-center">
+            <div class="logo">
+                <img src="/img/movie.png" alt="logo" title="logo" height="75px" width="100%">
+            </div>
+            <nav>
+                <ul class="d-flex">
+                    <!-- <li><a href="/adminView"><i class="ri-edit-box-line"></i></a></li> -->
+                    <!-- <li><a href="/show_View"><i class="ri-eye-line"></i></i></a></li> -->
+                    <li><a href="/"><i class="ri-home-3-line"></i></a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+
+
+
+<div class="container">
+    <form method="post" action="/MovieEdit"  enctype="multipart/form-data">
+        <input type="hidden" name="editid" value="<%= singleAdmin.id %>">
+
+        <div class="d-flex">
+            <div class="w-5">
+                <div class="form-inner1">
+
+                    <label for="Poster">Enter Poster : </label><br>
+                    <input type="file" name="images">
+                    <img src="<%= singleAdmin.images %>" height="175px" width="100px"></td>
+
+                    <br>
+
+                    <br>
+                    <label for="title">Enter Title : </label><br>
+                    <input type="text" name="title" placeholder="Enter Your Title" value="<%= singleAdmin.title %>">
+                    <br>
+
+                    <br>
+                    <label for="plot" >Enter Plot : </label><br>
+                    <textarea name="plot" cols="30" rows="1" placeholder="Enter Plot" ><%= singleAdmin.plot %></textarea>
+                    <br>
+
+                    <br>
+                    <label for="gener">Select Gener : </label><br>
+                    <input type="checkbox" name="gener[]" value="Comedy" <% if(singleAdmin.gener.includes('Comedy')){ %> <%= 'checked' %> <% } %>/> Comedy
+                    <input type="checkbox" name="gener[]" value="Drama" <% if(singleAdmin.gener.includes('Drama')){ %> <%= 'checked' %> <% } %>/> Drama
+                    <input type="checkbox" name="gener[]" value="Thriller" <% if(singleAdmin.gener.includes('Thriller')){ %> <%= 'checked' %> <% } %>/> Thriller
+                    <input type="checkbox" name="gener[]" value="Action" <% if(singleAdmin.gener.includes('Action')){ %> <%= 'checked' %> <% } %>/> Action
+                    <input type="checkbox" name="gener[]" value="Romance" <% if(singleAdmin.gener.includes('Romance')){ %> <%= 'checked' %> <% } %>/> Romance
+                    <input type="checkbox" name="gener[]" value="Horror" <% if(singleAdmin.gener.includes('Horror')){ %> <%= 'checked' %> <% } %>/> Horror<br>
+                    <input type="checkbox" name="gener[]" value="Suspense" <% if(singleAdmin.gener.includes('Suspense')){ %> <%= 'checked' %> <% } %>/> Suspense
+                    <input type="checkbox" name="gener[]" value="Adventure" <% if(singleAdmin.gener.includes('Adventure')){ %> <%= 'checked' %> <% } %>/> Adventure
+                    <input type="checkbox" name="gener[]" value="Crime" <% if(singleAdmin.gener.includes('Crime')){ %> <%= 'checked' %> <% } %>/> Crime
+                    <input type="checkbox" name="gener[]" value="Animation" <% if(singleAdmin.gener.includes('Animation')){ %> <%= 'checked' %> <% } %>/> Animation
+                    <br>
+
+                    <br>
+                    <% var city = ["1","2","3","4","5"]%>
+                    <label for="rating">Enter Rating : </label>
+                    <select name="rating">
+                        <option value="">--select City--</option>
+                        <% city.map((v,i)=>{ %>
+                            <option value="<%= v %>" <% if(v==singleAdmin.rating){ %> <%= 'selected' %> <% } %>><%= v %></option>
+                        <% }) %>
+                    </select>
+                    <br>
+
+                   
+
+
+                </div>
+            </div>
+            <div class="w-5">
+                <div class="form-inner2">
+
+                    <br>
+                    <label for="declaration">Enter Declaration : </label><br>
+                    <input type="text" name="declaration" placeholder="Enter Declaration" value="<%= singleAdmin.declaration %>">
+                    <br>
+
+
+                    <label for="release">Enter Release : </label><br>
+                    <input type="date" name="release" placeholder="Enter Release" value="<%= singleAdmin.release %>">
+                    <br>
+
+                    <br>
+                    <label for="name">Director Name : </label><br>
+                    <input type="text" name="name" placeholder="Director Name" value="<%= singleAdmin.name %>">
+                    <br>
+
+
+                    <br>
+                    <label for="casting">Enter Casting : </label><br>
+                    <textarea name="casting" cols="30" rows="1" placeholder="Enter Casting"><%= singleAdmin.casting %></textarea>
+                    <br>
+
+
+                    <br>
+                    <label for="budget">Enter Budget : </label><br>
+                    <input type="text" name="budget" placeholder="Enter Budget" value="<%= singleAdmin.budget %>">
+                    <br>
+
+                    <br>
+                    <label for="language">Select Language : </label><br>
+                    <input type="checkbox" name="language[]" value="Hindi" <% if(singleAdmin.language.includes('Hindi')){ %> <%= 'checked' %> <% } %>/> Hindi
+                    <input type="checkbox" name="language[]" value="English" <% if(singleAdmin.language.includes('English')){ %> <%= 'checked' %> <% } %>/> English
+                    <input type="checkbox" name="language[]" value="Gujrati" <% if(singleAdmin.language.includes('Gujrati')){ %> <%= 'checked' %> <% } %>/> Gujrati
+                    <input type="checkbox" name="language[]" value="Spanish" <% if(singleAdmin.language.includes('Spanish')){ %> <%= 'checked' %> <% } %>/> Spanish
+                    <input type="checkbox" name="language[]" value="Russian" <% if(singleAdmin.language.includes('Russian')){ %> <%= 'checked' %> <% } %>/> Russian
+                    <input type="checkbox" name="language[]" value="French" <% if(singleAdmin.language.includes('French')){ %> <%= 'checked' %> <% } %>/> French
+                    <input type="checkbox" name="language[]" value="German" <% if(singleAdmin.language.includes('German')){ %> <%= 'checked' %> <% } %>/> German
+                    <br>
+
+                    <br>
+                    <label></label><br>
+                    <button class="form-btn" value="update">Submit</button>
+                  <br>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

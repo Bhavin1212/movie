@@ -1,0 +1,59 @@
+<style>
+    body{
+        background-color: #fff2c0;
+    }
+    table{
+        background-color: rgb(237 250 255);
+    }
+     a:first-child{
+        margin-right: 15px;
+        margin-left: 15px;
+    }
+    a:last-child{
+        margin-right: 15px;
+    }
+    a i{
+        font-size: 25px;
+        color: black;
+    }
+</style>
+
+<link rel="stylesheet" href="/remix/remixicon.css">
+
+
+<table border="1">
+    <tr>
+        <td>Poster</td>
+        <td>Title</td>
+        <td>Plot</td>
+        <td>Gener</td>
+        <td>Rating</td>
+        <td>Declaration</td>
+        <td>Date</td>
+        <td>Casting</td>
+        <td>Name</td>
+        <td>Budget</td>
+        <td>Language</td>
+        <td>Action</td>
+    </tr>
+    <% 
+    for(var ad of admindata){ %>
+    <tr>
+        <td><img src="<%= ad.images %>" height="150px" width="100px"></td>
+        <td><%= ad.title %></td>
+        <td><%= ad.plot %></td>
+        <td><%= ad.gener %></td>
+        <td><%= ad.rating %></td>
+        <td><%= ad.declaration %></td>
+        <td><%= ad.release %></td>
+        <td><%= ad.name %></td>
+        <td><%= ad.casting %></td>
+        <td><%= ad.budget %></td>
+        <td><%= ad.language %></td>
+        <td><a href="/deleteRecord/<%= ad.id %>"><i class="ri-delete-bin-line"></i></a> 
+            <a href="/updateRecord/?id=<%= ad.id %>"><i class="ri-loop-right-line"></a></td>
+    </tr>
+    <%  } %>
+
+    
+</table>
